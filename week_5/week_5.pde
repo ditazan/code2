@@ -113,9 +113,9 @@ void scene1() {background(207, 255, 188);
  
   // pathway
     for(int i = 0; i<6; i+=2){
-      path(200+ 40*i, 500);
+      path(200+ 40*i, 400);
     }
-    for(int i = 0; i<9; i+=1){
+    for(int i = 0; i<7; i+=1){
       path(150, 150+ 40*i);
     }
     for(int i = 0; i<6; i+=2){
@@ -125,8 +125,8 @@ void scene1() {background(207, 255, 188);
   // house
   fill(255, 186, 139);
   stroke( 252, 155, 89);
-  rect(430, 430, 100, 100);
-  triangle(430, 430, 530, 430, 480, 380);
+  rect(330, 330, 100, 100);
+  triangle(330, 330, 430, 330, 380, 280);
   
   //bridge
   fill(126, 61, 28);
@@ -134,11 +134,12 @@ void scene1() {background(207, 255, 188);
   rect(350, 70, 75, 50);
   
   // rave ! ! !
-  if (mouseX> 450 && mouseY<200){
+  if (mouseX> 400 && mouseY<250){
     fill(random(255), random(255),random(255));
     noStroke();
     rect(425,-80, 300, 275, 60);
   }
+  player(mouseX, mouseY-30);
 }
 
 void scene2() {
@@ -199,6 +200,8 @@ ellipse(75.5, 25, 7, 7);
  //ball on top of party hat
 
 quad(67, 130, 75, 120, 83, 130, 75, 140);
+
+
 }
 // defining grass detail function
 void grass(float x, float y){
