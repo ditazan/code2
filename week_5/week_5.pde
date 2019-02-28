@@ -1,4 +1,4 @@
-int sceneNumber = 0;
+ int sceneNumber = 0;
 int fit = 0;
 
 void setup() {
@@ -167,7 +167,7 @@ void scene1() {background(207, 255, 188);
 }
 
 void scene2() {
-  background(105,105,105);
+  background(105,105,105 );
   strokeWeight(1);
   fill(180,234,201,100);
   stroke(255,255,0);
@@ -256,7 +256,7 @@ void fit2(){
   triangle(mouseX -24 , mouseY -55, mouseX +24, mouseY -55,mouseX, mouseY-90);
   
   // party hat topper
-  fill(247,162,0);
+  fill(255,165,0);
   noStroke();
   ellipse(mouseX, mouseY-95, 15, 15);
 
