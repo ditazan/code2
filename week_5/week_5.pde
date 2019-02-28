@@ -1,4 +1,5 @@
 int sceneNumber = 0;
+int fit = 0;
 
 void setup() {
   size(500,500);
@@ -22,10 +23,31 @@ void draw() {
     sceneNumber = 0;
     break;
   }
+  switch(fit){
+    case 0 : 
+      fit0();
+    break;
+    
+    case 1:
+      fit1();
+    break;
+    
+    case 2:
+      fit2();
+    break;
+    
+    case 3:
+    fit = 0;
+    break;
+  }
 }
 
 void mousePressed() {
   sceneNumber++;
+}
+
+void keyPressed() {
+  fit++;
 }
 
 void scene0() {
@@ -76,6 +98,8 @@ triangle(310, 200, 270, 170, 290, 100);
 
 rect(350, 260, 60, 50);
 rect(450, 260, 60, 50);
+
+player();
 }
 
 void scene1() {background(207, 255, 188);
@@ -139,11 +163,11 @@ void scene1() {background(207, 255, 188);
     noStroke();
     rect(425,-80, 300, 275, 60);
   }
-  player(mouseX, mouseY-30);
+  player();
 }
 
 void scene2() {
-  background(255);
+  background(105,105,105);
   strokeWeight(1);
   fill(180,234,201,100);
   stroke(255,255,0);
@@ -201,6 +225,40 @@ ellipse(75.5, 25, 7, 7);
 
 quad(67, 130, 75, 120, 83, 130, 75, 140);
 
+player();
+}
+
+void fit0(){
+fill(255, 246, 121);
+  stroke(240, 240, 70);
+  triangle(mouseX -24 , mouseY -55, mouseX +24, mouseY -55,mouseX, mouseY-90);
+  
+  // party hat topper
+  fill(255, 0, 0);
+  noStroke();
+  ellipse(mouseX, mouseY-95, 15, 15);
+
+}
+void fit1(){
+  fill(136, 86, 206);
+  stroke(170, 121, 234);
+  triangle(mouseX -24 , mouseY -55, mouseX +24, mouseY -55,mouseX, mouseY-90);
+  
+  // party hat topper
+  fill(255,255,0);
+  noStroke();
+  ellipse(mouseX, mouseY-95, 15, 15);
+
+}
+void fit2(){
+  fill(33, 38, 255);
+  stroke(110, 115, 232);  
+  triangle(mouseX -24 , mouseY -55, mouseX +24, mouseY -55,mouseX, mouseY-90);
+  
+  // party hat topper
+  fill(247,162,0);
+  noStroke();
+  ellipse(mouseX, mouseY-95, 15, 15);
 
 }
 // defining grass detail function
@@ -212,36 +270,36 @@ void grass(float x, float y){
   arc(x -10, y, 10,30,PI, PI*2);
 }
 // defing how handsome ur friend is
-void player(float c, float v){
+void player(){
   
   // head base
   fill(244, 232, 255);
   stroke(219, 178, 255);
-  ellipse(c, v, 70, 70);
+  ellipse(mouseX, mouseY-30, 70, 70);
   
   //party hat base
   fill(255, 246, 121);
   stroke(240, 240, 70);
-  triangle(c -24 , v -25, c +24, v -25,c, v-60);
+  triangle(mouseX -24 , mouseY -55, mouseX +24, mouseY -55,mouseX, mouseY-90);
   
   // party hat topper
   fill(255, 0, 0);
   noStroke();
-  ellipse(c, v-60, 15, 15);
+  ellipse(mouseX, mouseY-95, 15, 15);
   
   // eyes
   fill(0, 10, 110);
   stroke(0, 10, 110);
-  ellipse(c- 15, v -10, 3,3);
-  ellipse(c+ 15, v -10, 3,3);
+  ellipse(mouseX- 15, mouseY -40, 3,3);
+  ellipse(mouseX+ 15, mouseY -40, 3,3);
   
   // smile
   noFill();
-  arc(c, v+6, 30, 20, 0, PI);
+  arc(mouseX, mouseY-24, 30, 20, 0, PI);
   
   // nose
-  line(c, v-3, c+3, v);
-  line(c, v, c+3, v);
+  line(mouseX, mouseY-33, mouseX+3, mouseY-30);
+  line(mouseX, mouseY-30, mouseX+3, mouseY-30);
   
   }
   
